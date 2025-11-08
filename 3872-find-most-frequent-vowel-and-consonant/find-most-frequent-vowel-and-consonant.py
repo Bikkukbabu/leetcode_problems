@@ -7,10 +7,8 @@ class Solution:
         for char in s:
             if char in vowel_mapping:
                 vowel_mapping[char] = vowel_mapping.get(char) + 1
-                if vowel_mapping[char] > max_vowel:
-                    max_vowel = vowel_mapping[char]
+                max_vowel = max(max_vowel, vowel_mapping[char])
             else:
                 consonant_mapping[char] = consonant_mapping.get(char, 0) + 1
-                if consonant_mapping[char] > max_consonant:
-                    max_consonant = consonant_mapping[char]
+                max_consonant = max(max_consonant, consonant_mapping[char])
         return max_vowel + max_consonant
